@@ -13,13 +13,13 @@ switch (action) {
         deposit();
         break;
 
-         case "withdraw":
-             withdraw();
-             break;
+    case "withdraw":
+        withdraw();
+        break;
 
-        //  case "lotto":
-        //      total();
-        //      break;
+    case "lotto":
+        lotto();
+        break;
 }
 
 
@@ -43,7 +43,7 @@ function total() {
 }
 
 function deposit() {
-     
+
     fs.appendFile("bank.txt", transaction + ", ", "utf8", function (err) {
         if (err) {
             return console.log(err);
@@ -54,6 +54,19 @@ function deposit() {
 function withdraw() {
 
     fs.appendFile("bank.txt", "-" + transaction + ", ", "utf8", function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+}
+
+function lotto() {
+    if (transaction === "5") {
+        transaction = 30;
+    } else {
+        transaction = -1;
+    }
+    fs.appendFile("bank.txt", transaction + ", ", "utf8", function (err) {
         if (err) {
             return console.log(err);
         }
