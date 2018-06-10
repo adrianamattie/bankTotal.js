@@ -2,6 +2,7 @@ var fs = require("fs");
 
 var action = process.argv[2];
 var transaction = process.argv[3];
+var transactionArr;
 
 switch (action) {
     case "total":
@@ -28,7 +29,7 @@ function total() {
         if (err) {
             return console.log(err);
         }
-        data = data.split(" , ")
+        data = data.split(", ")
         var result = 0;
 
         for (var i = 0; i < data.length; i++) {
@@ -43,14 +44,16 @@ function total() {
 
 function deposit() {
      
-    fs.appendFile("bank.txt", transaction, "utf8", function (err) {
+    fs.appendFile("bank.txt", transactionArr, "utf8", function (err) {
         if (err) {
             return console.log(err);
         }
 console.log(typeof transaction);
 
-       transaction = transaction.split(", "); 
-       console.log(typeof transaction);
-       console.log(transaction);
+      transactionArr = transaction.split(" , "); 
+       console.log("-------------------------");
+       console.log("This is the type:");
+       console.log(typeof transactionArr);
+       console.log("the transactionArr is " + transactionArr);
     });
 }
