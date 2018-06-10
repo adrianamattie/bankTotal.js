@@ -2,7 +2,7 @@ var fs = require("fs");
 
 var action = process.argv[2];
 var transaction = process.argv[3];
-var transactionArr;
+
 
 switch (action) {
     case "total":
@@ -11,10 +11,12 @@ switch (action) {
 
     case "deposit":
         deposit();
+        console.log("successfully deposited, you'll be heading on vacation before you know it!")
         break;
 
     case "withdraw":
         withdraw();
+        console.log("hmmm what are you buying?")
         break;
 
     case "lotto":
@@ -63,8 +65,10 @@ function withdraw() {
 function lotto() {
     if (transaction === "5") {
         transaction = 30;
+        console.log("you won!!!")
     } else {
         transaction = -1;
+        console.log("are you sure gambling is worth it?")
     }
     fs.appendFile("bank.txt", transaction + ", ", "utf8", function (err) {
         if (err) {
