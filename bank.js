@@ -11,12 +11,10 @@ switch (action) {
 
     case "deposit":
         deposit();
-        console.log("successfully deposited, you'll be heading on vacation before you know it!")
         break;
 
     case "withdraw":
         withdraw();
-        console.log("hmmm what are you buying?")
         break;
 
     case "lotto":
@@ -50,6 +48,9 @@ function deposit() {
         if (err) {
             return console.log(err);
         }
+        else {
+             console.log("successfully deposited, you'll be heading on vacation before you know it!")
+        }
     });
 }
 
@@ -58,6 +59,9 @@ function withdraw() {
     fs.appendFile("bank.txt", "-" + transaction + ", ", "utf8", function (err) {
         if (err) {
             return console.log(err);
+        }
+        else {
+             console.log("hmmm what are you buying?")
         }
     });
 }
