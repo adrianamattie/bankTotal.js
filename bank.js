@@ -13,9 +13,9 @@ switch (action) {
         deposit();
         break;
 
-        //  case "withdraw":
-        //      total();
-        //      break;
+         case "withdraw":
+             withdraw();
+             break;
 
         //  case "lotto":
         //      total();
@@ -44,16 +44,18 @@ function total() {
 
 function deposit() {
      
-    fs.appendFile("bank.txt", transactionArr, "utf8", function (err) {
+    fs.appendFile("bank.txt", transaction + ", ", "utf8", function (err) {
         if (err) {
             return console.log(err);
         }
-console.log(typeof transaction);
+    });
+}
 
-      transactionArr = transaction.split(" , "); 
-       console.log("-------------------------");
-       console.log("This is the type:");
-       console.log(typeof transactionArr);
-       console.log("the transactionArr is " + transactionArr);
+function withdraw() {
+
+    fs.appendFile("bank.txt", "-" + transaction + ", ", "utf8", function (err) {
+        if (err) {
+            return console.log(err);
+        }
     });
 }
